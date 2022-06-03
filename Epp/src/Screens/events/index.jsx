@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Dimensions, FlatList, StyleSheet, Text, View, Image, Button, Alert, TouchableOpacity } from 'react-native';
 import { getEvents, setEvents } from '../../data/events'
 import { useTranslation } from 'react-i18next'
-import { axiosEvents } from '../../axios/'
 import NetInfo from "@react-native-community/netinfo";
 import axios from 'axios';
 
@@ -29,11 +28,11 @@ function EventsScreen({ navigation }) {
 
     useEffect(() => {
 
-        axios.get('http://192.168.3.182:3030/api/event').then(function (response) {
-            setEvents(response.data)
-        }).catch(function (error) {
-            console.log(error.message)
-        })
+        // axios.get('http://192.168.3.182:3030/api/event').then(function (response) {
+        //     setEvents(response.data)
+        // }).catch(function (error) {
+        //     console.log(error.message)
+        // })
 
         async function fetchData() {
 
@@ -57,27 +56,29 @@ function EventsScreen({ navigation }) {
 
     return (
         <View style={styles.container}>
+            <View>
+                <FlatList
+                    data={eventos}
+                    contentContainerStyle={{ paddingBottom: 20, paddingTop: 20 }}
+                    renderItem={({ item }) => {
+                        const newDate = new Date(item.date)
+                        const formattedDate = `${newDate.getDate()}/0${newDate.getMonth() + 1}/${newDate.getFullYear()}`
+                        const formattedHour = `${newDate.getHours()}:${newDate.getMinutes()}`
+                        return (<View style={styles.viewFromFlat}>
+                            {/* onPress={() => { console.log(formattedDate, ' ', newDate.toUTCString()), navigation.navigate('Inicio', { screen: 'Home', params: item }) }} */}
+                            <TouchableOpacity onPress={() => { console.log(formattedDate, ' ', newDate.toUTCString()), navigation.navigate('Inicio', { screen: 'Home', params: item }) }}>
+                                <Text style={{ fontSize: 18, flexShrink: 1 }} > {item.name}</Text>
+                            </TouchableOpacity>
+                        </View>
+                        )
 
-            <FlatList
-                data={eventos}
-                renderItem={({ item }) => {
-                    const newDate = new Date(item.date)
-                    const formattedDate = `${newDate.getDate()}/0${newDate.getMonth()+1}/${newDate.getFullYear()}`
-                    const formattedHour = `${newDate.getHours()}:${newDate.getMinutes()}`
-                    return (<View style={styles.viewFromFlat}>
-                        <TouchableOpacity onPress={() => { console.log(formattedDate,' ',newDate.toUTCString()),navigation.navigate('Inicio', { screen: 'Home', params: item }) }}>
-                            <Text style={{ fontSize: 18, flexShrink: 1 }} > {item.name}</Text>
-                            <Text style={{ fontSize: 18, flexShrink: 1 }} > {formattedDate}</Text>
-                            <Text style={{ fontSize: 18, flexShrink: 1 }} > {formattedHour}</Text>
-                        </TouchableOpacity>
-                    </View>
-                    )
 
+                    }}
+                    keyExtractor={eventos => eventos.id}
+                    scrollEnabled={true}
+                />
 
-                }}
-                keyExtractor={eventos => eventos.id}
-                scrollEnabled={true}
-            />
+            </View>
 
         </View >
     );
