@@ -54,8 +54,8 @@ function Maps(props) {
 
     if (props.latiD != undefined) {
       setInitialPlace({
-        latitude: props.latiD.evento.lat,
-        longitude: props.latiD.evento.long,
+        latitude: props.latiD.lat,
+        longitude: props.latiD.long,
       })
     }
     //pede a localização do usuário.
@@ -109,12 +109,12 @@ function Maps(props) {
           <Marker
 
             coordinate={{
-              latitude: props.latiD.evento.lat,
-              longitude: props.latiD.evento.long
+              latitude: props.latiD.lat,
+              longitude: props.latiD.long
             }}
             pinColor={'red'}
-            title={`${props.latiD.evento.name}`}
-            description={`${props.latiD.evento.description}`}
+            title={`${props.latiD.name}`}
+            description={`${props.latiD.description}`}
 
 
 
