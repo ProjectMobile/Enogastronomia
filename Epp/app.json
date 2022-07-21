@@ -2,7 +2,7 @@
   "expo": {
     "name": "Festival de Enogastronomia",
     "slug": "app",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "orientation": "portrait",
     "icon": "./assets/Enogastronomia-Icone.png",
     "splash": {
@@ -17,23 +17,29 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "enogastronomia.app"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/Enogastronomia-Icone.png",
         "backgroundColor": "#FFFFFF"
       },
-      "config":{
-        "googleMaps":{
-          "apiKey":"AIzaSyAKfi0hUN4Y06y8C5R8obvmVxFEQXVaDp0"
+      "versionCode":2,
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAKfi0hUN4Y06y8C5R8obvmVxFEQXVaDp0"
         }
       },
-      "permissions":["ACCESS_BACKGROUND_LOCATION","ACCESS_COARSE_LOCATION"],
+      "permissions": [
+        "ACCESS_BACKGROUND_LOCATION",
+        "ACCESS_COARSE_LOCATION"
+      ],
       "package": "enogastronomia.app"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     }
-  }
+  },
+  "version":"2.0.0"
 }
