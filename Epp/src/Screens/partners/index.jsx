@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Dimensions, FlatList, StyleSheet, Text, View, Image, Button, TouchableOpacity, Linking } from 'react-native';
-import { getPartners } from '../partners/data'
-import { List, Modal } from 'react-native-paper'
+import { Dimensions, FlatList, StyleSheet, Text, View, Image, Button, TouchableOpacity, Linking, ScrollView } from 'react-native';
+import { getCircuito, getHotels, getPraca } from '../partners/data'
+import { List } from 'react-native-paper'
 import { ModalPopUp } from '../../Components/modal';
-import { Maps } from '../../Components/maps';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 import { colors } from '../../Components/colors';
 import { mapStyle } from '../../Components/colors/'
@@ -14,6 +13,35 @@ import { Ionicons } from '@expo/vector-icons';
 
 function PartnerScreen({ navigation }) {
     const { t, i18n } = useTranslation()
+    const [hotelPartners, setHotelPartners] = useState([])
+    const [circuitoRestaurants, setCircuitoRestaurants] = useState([])
+    const [pracaRestaurants, setPracaRestaurants] = useState([])
+    const [expanded, setExpanded] = useState(false);
+    const [expanded2, setExpanded2] = useState(false);
+    const [expanded3, setExpanded3] = useState(false);
+    const [partner, setPartner] = useState({})
+    const [modal, setModal] = useState(false)
+    const [initialRegion, setInitialRegion] = useState({
+        latitude: -30.8955704,
+        longitude: -55.5370476,
+        latitudeDelta: 0.00922,
+        longitudeDelta: 0.00421,
+    })
+    const handlePress = () => setExpanded(!expanded);
+    const handlePress2 = () => setExpanded2(!expanded2);
+    const handlePress3 = () => setExpanded3(!expanded3);
+
+    useEffect(() => {
+        setHotelPartners(getHotels())
+        setCircuitoRestaurants(getCircuito())
+        setPracaRestaurants(getPraca())
+
+        console.log(circuitoRestaurants.slice(Math.ceil(circuitoRestaurants.length / 2), circuitoRestaurants.length))
+
+    }, [])
+
+
+
 
     function verifyPhone(phone) {
         var phones = phone.split('/')
@@ -51,42 +79,6 @@ function PartnerScreen({ navigation }) {
         }
         return functions
     }
-
-
-    useEffect(() => {
-        async function fetch() {
-            const partnersA = getPartners();
-            var hotelParceiros = partnersA
-            var hotel = [];
-
-            hotelParceiros.forEach(element => {
-                if (element.type == "Hotel") {
-                    hotel.push(element)
-                }
-            })
-
-            setHotelPartners(hotel)
-
-        }
-
-        fetch();
-
-    }, [])
-
-
-    const [hotelPartners, setHotelPartners] = useState([])
-    const [expanded, setExpanded] = useState(false);
-    const [partner, setPartner] = useState({})
-    const [modal, setModal] = useState(false)
-    const [initialRegion, setInitialRegion] = useState({
-        latitude: -30.8955704,
-        longitude: -55.5370476,
-        latitudeDelta: 0.00922,
-        longitudeDelta: 0.00421,
-    })
-    const handlePress = () => setExpanded(!expanded);
-
-
 
     function ModalMap() {
         return (
@@ -150,7 +142,7 @@ function PartnerScreen({ navigation }) {
 
 
     return (
-        <View >
+        <ScrollView >
 
             <ModalMap />
 
@@ -160,27 +152,24 @@ function PartnerScreen({ navigation }) {
                     title={t("officialHotels")}
                     expanded={expanded}
                     onPress={handlePress}
+                    left={props => <List.Icon {...props} icon="bed" />}
+
                 >
 
-                    <View style={{
-                        width: Dimensions.get('screen').width,
-                        height: Dimensions.get('screen').height,
-                        alignItems: 'center'
-                    }}>
-                        <FlatList
-                            data={hotelPartners}
-                            style={{ flexBasis: 0, }}
-                            scrollEnabled={true}
-                            renderItem={(item) => {
-                                return (
-                                    <View style={{ margin: 10 }}>
+
+
+                    <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+                        <View style={{ flexDirection: 'column', right: Dimensions.get('screen').width * 0.1 }}>
+                            {
+                                hotelPartners.slice(0, Math.ceil(hotelPartners.length / 2)).map(hotel => {
+                                    return (
                                         <TouchableOpacity onPress={() => {
-                                            setPartner(item.item)
-                                            if (item.item.lat !== null && item.item.long !== null) {
+                                            setPartner(hotel)
+                                            if (hotel.lat !== null && hotel.long !== null) {
                                                 setInitialRegion(
                                                     {
-                                                        latitude: item.item.lat,
-                                                        longitude: item.item.long,
+                                                        latitude: hotel.lat,
+                                                        longitude: hotel.long,
                                                         latitudeDelta: 0.00922,
                                                         longitudeDelta: 0.00421,
                                                     }
@@ -189,26 +178,215 @@ function PartnerScreen({ navigation }) {
                                             setModal(!modal)
                                         }}>
                                             <Image
-                                                source={{ uri: item.item.img }}
+                                                source={{ uri: hotel.img }}
                                                 style={{
                                                     borderRadius: 26,
-                                                    width: 130,
-                                                    height: 130,
+                                                    width: 160,
+                                                    height: 160,
                                                     marginBottom: 5,
+                                                    marginTop: 5
                                                 }}
+
                                             /></TouchableOpacity>
-                                    </View>
-                                )
-                            }}
-                            key={(item) => item.id}
-                            numColumns={2}
-                        />
+                                    )
+                                })
+                            }
+                        </View>
+                        <View style={{ flexDirection: 'column', right: Dimensions.get('screen').width * 0.05 }}>
+                            {
+                                hotelPartners.slice(Math.ceil(hotelPartners.length / 2), hotelPartners.length).map(hotel => {
+                                    return (
+                                        <TouchableOpacity onPress={() => {
+                                            setPartner(hotel)
+                                            if (hotel.lat !== null && hotel.long !== null) {
+                                                setInitialRegion(
+                                                    {
+                                                        latitude: hotel.lat,
+                                                        longitude: hotel.long,
+                                                        latitudeDelta: 0.00922,
+                                                        longitudeDelta: 0.00421,
+                                                    }
+                                                )
+                                            }
+                                            setModal(!modal)
+                                        }}>
+                                            <Image
+                                                source={{ uri: hotel.img }}
+                                                style={{
+                                                    borderRadius: 26,
+                                                    width: 160,
+                                                    height: 160,
+                                                    marginBottom: 5,
+                                                    marginTop: 5
+                                                }}
+
+                                            /></TouchableOpacity>
+                                    )
+                                })
+                            }
+                        </View>
+                    </View>
+
+
+
+
+
+                </List.Accordion>
+
+                <List.Accordion title='Circuito'
+                    expanded={expanded2}
+                    onPress={handlePress2}
+                    left={props => <List.Icon {...props} icon="silverware" />}
+                >
+                    <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+                        <View style={{ flexDirection: 'column', right: Dimensions.get('screen').width * 0.1 }}>
+                            {
+                                circuitoRestaurants.slice(0, Math.ceil(circuitoRestaurants.length / 2)).map(hotel => {
+                                    return (
+                                        <TouchableOpacity onPress={() => {
+                                            setPartner(hotel)
+                                            if (hotel.lat !== null && hotel.long !== null) {
+                                                setInitialRegion(
+                                                    {
+                                                        latitude: hotel.lat,
+                                                        longitude: hotel.long,
+                                                        latitudeDelta: 0.00922,
+                                                        longitudeDelta: 0.00421,
+                                                    }
+                                                )
+                                            }
+                                            setModal(!modal)
+                                        }}>
+                                            <Image
+                                                source={{ uri: hotel.img }}
+                                                style={{
+                                                    borderRadius: 26,
+                                                    width: 160,
+                                                    height: 160,
+                                                    marginBottom: 5,
+                                                    marginTop: 5
+                                                }}
+
+                                            /></TouchableOpacity>
+                                    )
+                                })
+                            }
+                        </View>
+                        <View style={{ flexDirection: 'column', right: Dimensions.get('screen').width * 0.05 }}>
+                            {
+                                circuitoRestaurants.slice(Math.ceil(circuitoRestaurants.length / 2), circuitoRestaurants.length).map(hotel => {
+                                    return (
+                                        <TouchableOpacity onPress={() => {
+                                            setPartner(hotel)
+                                            if (hotel.lat !== null && hotel.long !== null) {
+                                                setInitialRegion(
+                                                    {
+                                                        latitude: hotel.lat,
+                                                        longitude: hotel.long,
+                                                        latitudeDelta: 0.00922,
+                                                        longitudeDelta: 0.00421,
+                                                    }
+                                                )
+                                            }
+                                            setModal(!modal)
+                                        }}>
+                                            <Image
+                                                source={{ uri: hotel.img }}
+                                                style={{
+                                                    borderRadius: 26,
+                                                    width: 160,
+                                                    height: 160,
+                                                    marginBottom: 5,
+                                                    marginTop: 5
+                                                }}
+
+                                            /></TouchableOpacity>
+                                    )
+                                })
+                            }
+                        </View>
+                    </View>
+
+                </List.Accordion>
+
+                <List.Accordion title='Praça de alimentação'
+                    expanded={expanded3}
+                    onPress={handlePress3}
+                    left={props => <List.Icon {...props} icon="clock" />}
+                >
+                    <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+                        <View style={{ flexDirection: 'column', right: Dimensions.get('screen').width * 0.1 }}>
+                            {
+                                pracaRestaurants.slice(0, Math.ceil(pracaRestaurants.length / 2)).map(hotel => {
+                                    return (
+                                        <TouchableOpacity onPress={() => {
+                                            setPartner(hotel)
+                                            if (hotel.lat !== null && hotel.long !== null) {
+                                                setInitialRegion(
+                                                    {
+                                                        latitude: hotel.lat,
+                                                        longitude: hotel.long,
+                                                        latitudeDelta: 0.00922,
+                                                        longitudeDelta: 0.00421,
+                                                    }
+                                                )
+                                            }
+                                            setModal(!modal)
+                                        }}>
+                                            <Image
+                                                source={{ uri: hotel.img }}
+                                                style={{
+                                                    borderRadius: 26,
+                                                    width: 160,
+                                                    height: 160,
+                                                    marginBottom: 5,
+                                                    marginTop: 5
+                                                }}
+
+                                            /></TouchableOpacity>
+                                    )
+                                })
+                            }
+                        </View>
+                        <View style={{ flexDirection: 'column', right: Dimensions.get('screen').width * 0.05 }}>
+                            {
+                                pracaRestaurants.slice(Math.ceil(pracaRestaurants.length / 2), pracaRestaurants.length).map(hotel => {
+                                    return (
+                                        <TouchableOpacity onPress={() => {
+                                            setPartner(hotel)
+                                            if (hotel.lat !== null && hotel.long !== null) {
+                                                setInitialRegion(
+                                                    {
+                                                        latitude: hotel.lat,
+                                                        longitude: hotel.long,
+                                                        latitudeDelta: 0.00922,
+                                                        longitudeDelta: 0.00421,
+                                                    }
+                                                )
+                                            }
+                                            setModal(!modal)
+                                        }}>
+                                            <Image
+                                                source={{ uri: hotel.img }}
+                                                style={{
+                                                    borderRadius: 26,
+                                                    width: 160,
+                                                    height: 160,
+                                                    marginBottom: 5,
+                                                    marginTop: 5
+                                                }}
+
+                                            /></TouchableOpacity>
+                                    )
+                                })
+                            }
+                        </View>
                     </View>
 
                 </List.Accordion>
 
             </List.Section>
-        </View>
+        </ScrollView>
     );
 }
 

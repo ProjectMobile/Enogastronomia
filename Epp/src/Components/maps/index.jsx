@@ -43,6 +43,7 @@ function Maps(props) {
         maxZoomLevel={20}
         minZoomLevel={15}
         userInterfaceStyle={"dark"}
+        
         customMapStyle={mapStyle}
         initialRegion={{
           latitude: initialPlace.latitude,
