@@ -163,7 +163,9 @@ function PartnerScreen({ navigation }) {
                             {
                                 hotelPartners.slice(0, Math.ceil(hotelPartners.length / 2)).map(hotel => {
                                     return (
-                                        <TouchableOpacity onPress={() => {
+                                        <TouchableOpacity 
+                                        key={hotel.id}
+                                        onPress={() => {
                                             setPartner(hotel)
                                             if (hotel.lat !== null && hotel.long !== null) {
                                                 setInitialRegion(
@@ -196,7 +198,10 @@ function PartnerScreen({ navigation }) {
                             {
                                 hotelPartners.slice(Math.ceil(hotelPartners.length / 2), hotelPartners.length).map(hotel => {
                                     return (
-                                        <TouchableOpacity onPress={() => {
+                                        <TouchableOpacity 
+                                        
+                                        key={hotel.id}
+                                        onPress={() => {
                                             setPartner(hotel)
                                             if (hotel.lat !== null && hotel.long !== null) {
                                                 setInitialRegion(
@@ -243,7 +248,10 @@ function PartnerScreen({ navigation }) {
                             {
                                 circuitoRestaurants.slice(0, Math.ceil(circuitoRestaurants.length / 2)).map(hotel => {
                                     return (
-                                        <TouchableOpacity onPress={() => {
+                                        <TouchableOpacity 
+                                        
+                                        key={hotel.id}
+                                        onPress={() => {
                                             setPartner(hotel)
                                             if (hotel.lat !== null && hotel.long !== null) {
                                                 setInitialRegion(
@@ -289,7 +297,11 @@ function PartnerScreen({ navigation }) {
                                                 )
                                             }
                                             setModal(!modal)
-                                        }}>
+                                        }}
+                                        
+                                        
+                                        key={hotel.id}
+                                        >
                                             <Image
                                                 source={{ uri: hotel.img }}
                                                 style={{
@@ -332,7 +344,10 @@ function PartnerScreen({ navigation }) {
                                                 )
                                             }
                                             setModal(!modal)
-                                        }}>
+                                        }}
+                                        
+                                        key={hotel.id}
+                                        >
                                             <Image
                                                 source={{ uri: hotel.img }}
                                                 style={{
@@ -352,7 +367,10 @@ function PartnerScreen({ navigation }) {
                             {
                                 pracaRestaurants.slice(Math.ceil(pracaRestaurants.length / 2), pracaRestaurants.length).map(hotel => {
                                     return (
-                                        <TouchableOpacity onPress={() => {
+                                        <TouchableOpacity 
+                                        
+                                        key={hotel.id}
+                                        onPress={() => {
                                             setPartner(hotel)
                                             if (hotel.lat !== null && hotel.long !== null) {
                                                 setInitialRegion(

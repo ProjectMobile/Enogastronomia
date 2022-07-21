@@ -78,8 +78,7 @@ export function ShowBottomTabs() {
                                     color: focused ? `${colors.red}` : `${colors.black}`, fontSize: 10
                                 }}
                             >   
-                                Avaliar
-                                {/* {t("map")} */}
+                                {t("evaluate")}
                             </Text>
                         </>
                     </>
