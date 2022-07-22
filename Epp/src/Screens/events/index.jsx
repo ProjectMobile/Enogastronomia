@@ -282,10 +282,10 @@ function EventsScreen({ navigation }) {
                     <View style={{ bottom: 5, flexDirection: 'row-reverse' }}>
                         <Icon name='close' size={32} color='black' onPress={() => { setVisible(!visible) }} style={{}} />
                     </View>
-                    <Button icon="google-maps" mode="contained" color={'white'} style={{ width: Dimensions.get('screen').width * 0.55, alignSelf: 'center', borderColor: 'red', borderWidth: 2, borderRadius: 20 }} onPress={() => {
+                    <Button icon="google-maps" mode="contained" color={'white'} style={{ width: Dimensions.get('screen').width * 0.65, alignSelf: 'center', borderColor: 'red', borderWidth: 2, borderRadius: 20 }} onPress={() => {
                         navigation.navigate('Inicio', { screen: 'Home', params: eventoModal })
                     }} > {t("seeOnMap")}</Button>
-                    {eventoModal.simplaURL && (<Button icon={buttonICON(eventoModal.simplaURL)} mode="contained" color={'white'} style={{ width: Dimensions.get('screen').width * 0.55, marginTop: 10, alignSelf: 'center', borderColor: 'darkgreen', borderWidth: 2, borderRadius: 20 }} onPress={() => {
+                    {eventoModal.simplaURL && (<Button icon={buttonICON(eventoModal.simplaURL)} mode="contained" color={'white'} style={{ width: Dimensions.get('screen').width * 0.65, marginTop: 10, alignSelf: 'center', borderColor: 'darkgreen', borderWidth: 2, borderRadius: 20 }} onPress={() => {
                         Linking.openURL(eventoModal.simplaURL)
                     }} > {
                             verifyButtonCondition(eventoModal.simplaURL)
