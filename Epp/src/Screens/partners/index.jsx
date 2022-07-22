@@ -36,7 +36,6 @@ function PartnerScreen({ navigation }) {
         setCircuitoRestaurants(getCircuito())
         setPracaRestaurants(getPraca())
 
-        console.log(circuitoRestaurants.slice(Math.ceil(circuitoRestaurants.length / 2), circuitoRestaurants.length))
 
     }, [])
 

@@ -2,7 +2,7 @@
   "expo": {
     "name": "Festival de Enogastronomia",
     "slug": "app",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "orientation": "portrait",
     "icon": "./assets/Enogastronomia-Icone.png",
     "splash": {
@@ -25,7 +25,7 @@
         "foregroundImage": "./assets/Enogastronomia-Icone.png",
         "backgroundColor": "#FFFFFF"
       },
-      "versionCode":2,
+      "versionCode":3,
       "config": {
         "googleMaps": {
           "apiKey": "AIzaSyAKfi0hUN4Y06y8C5R8obvmVxFEQXVaDp0"
@@ -38,5 +38,5 @@
       "favicon": "./assets/favicon.png"
     }
   },
-  "version":"2.1.0"
+  "version":"3.0.0"
 }
