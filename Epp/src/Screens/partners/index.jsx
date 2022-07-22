@@ -125,7 +125,7 @@ function PartnerScreen({ navigation }) {
                             minZoomLevel={15}
                             customMapStyle={mapStyle}
                             userInterfaceStyle={"dark"}
-                            style={{ width: '90%', height: '90%' }}
+                            style={{ width: Dimensions.get('screen').width*0.8, height: Dimensions.get('screen').height*0.7 }}
                         >
                             {
                                 partner.lat !== null && partner.lat !== undefined && (<Marker coordinate={{ latitude: partner.lat, longitude: partner.long }} pinColor={colors.blue} title={partner.name}>

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Dimensions, FlatList, StyleSheet, Text, View, Image } from 'react-native';
+import { Dimensions,  StyleSheet,  View } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
-import * as Location from "expo-location";
 import { mapStyle } from '../colors/'
 
 
@@ -21,14 +20,6 @@ function Maps(props) {
     }
 
     //pede a localização do usuário.
-    (async () => {
-      let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== "granted") {
-        setErrorMsg("Permission to access location was denied");
-        return;
-      }
-
-    })();
   }, []);
 
 
@@ -37,7 +28,6 @@ function Maps(props) {
     <View style={styles.container}>
       <MapView
 
-        showsUserLocation={true}
         loadingEnabled={true}
         provider={PROVIDER_GOOGLE}
         maxZoomLevel={20}
@@ -105,7 +95,7 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%'
   }, maps: {
-    height: Dimensions.get('window').height,
+    height: Dimensions.get('window').height*0.95,
     width: Dimensions.get('window').width,
     top: 15
   }

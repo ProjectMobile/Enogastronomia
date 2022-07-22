@@ -27,7 +27,7 @@ export function ShowBottomTabs() {
                             />
                             <Text
                                 style={{
-                                    color: focused ? `${colors.red}` : `${colors.black}`, fontSize: 10
+                                    color: focused ? `${colors.red}` : `${colors.black}`, fontSize: 9
                                 }}
                             >
                                 {t("event")}
@@ -52,7 +52,7 @@ export function ShowBottomTabs() {
                             />
                             <Text
                                 style={{
-                                    color: focused ? `${colors.red}` : `${colors.black}`, fontSize: 10
+                                    color: focused ? `${colors.red}` : `${colors.black}`, fontSize: 9
                                 }}
                             >
                                 {t("map")}
@@ -75,7 +75,7 @@ export function ShowBottomTabs() {
                             />
                             <Text
                                 style={{
-                                    color: focused ? `${colors.red}` : `${colors.black}`, fontSize: 10
+                                    color: focused ? `${colors.red}` : `${colors.black}`, fontSize: 9
                                 }}
                             >   
                                 {t("evaluate")}
@@ -97,7 +97,7 @@ export function ShowBottomTabs() {
                             />
                             <Text
                                 style={{
-                                    color: focused ? `${colors.red}` : `${colors.black}`, fontSize: 10
+                                    color: focused ? `${colors.red}` : `${colors.black}`, fontSize: 9
                                 }}
                             >
                                 {t("partners")}
@@ -117,7 +117,7 @@ export function ShowBottomTabs() {
                             />
                             <Text
                                 style={{
-                                    color: focused ? `${colors.red}` : `${colors.black}`, fontSize: 10
+                                    color: focused ? `${colors.red}` : `${colors.black}`, fontSize: 9
                                 }}
                             >
                                 {t("settings")}

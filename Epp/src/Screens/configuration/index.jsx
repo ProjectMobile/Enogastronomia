@@ -1,8 +1,7 @@
-import { Dimensions, FlatList, StyleSheet, Text, View, Image, Button } from 'react-native';
+import { Dimensions,  StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { useTranslation } from 'react-i18next'
-import { Checkbox } from 'react-native-paper';
 import { useEffect, useState } from 'react'
-import { changeIsLoaded, isLoaded } from '../../data/events';
+import { changeIsLoaded } from '../../data/events';
 function ConfigScreen({ navigation }) {
 
 
@@ -22,15 +21,7 @@ function ConfigScreen({ navigation }) {
             <Text style={{ height: '80%', position: 'absolute' }}>{t("settings")}</Text>
 
             <View style={styles.viewHorizontal}>
-                <Image
-                    source={require('../../../assets/br.png')}
-                    style={{
-                        width: 60,
-                        height: 40,
-                    }}
-                />
-                <Checkbox
-                    status={portugueseCheck ? 'checked' : 'unchecked'}
+            <TouchableOpacity
                     onPress={() => {
                         if (portugueseCheck) {
 
@@ -43,18 +34,18 @@ function ConfigScreen({ navigation }) {
 
 
                     }}
-                />
+                >
+                    <Image
+                        source={require('../../../assets/br.png')}
+                        style={{
+                            width: 60,
+                            height: 40,
+                        }}
+                    />
+                </TouchableOpacity>
             </View>
             <View style={styles.viewHorizontal}>
-                <Image
-                    source={require('../../../assets/ur.png')}
-                    style={{
-                        width: 60,
-                        height: 40,
-                    }}
-                />
-                <Checkbox
-                    status={spanishCheck ? 'checked' : 'unchecked'}
+            <TouchableOpacity
                     onPress={() => {
                         if (spanishCheck) { } else {
                             setSpanishCheck(!spanishCheck);
@@ -64,7 +55,15 @@ function ConfigScreen({ navigation }) {
                         }
 
                     }}
-                />
+                >
+                    <Image
+                        source={require('../../../assets/ur.png')}
+                        style={{
+                            width: 60,
+                            height: 40,
+                        }}
+                    />
+                </TouchableOpacity>
             </View>
 
         </View>

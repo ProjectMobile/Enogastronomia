@@ -1,10 +1,9 @@
-import { Dimensions, FlatList, StyleSheet, Text, View, Image, Button, Alert } from 'react-native';
+import { Dimensions, StyleSheet, View, Image, Button, Alert, TouchableOpacity } from 'react-native';
 import { useEffect, useState } from 'react';
 import { setEvents27, setEvents28, setEvents29, asyncClear, setEvents30 } from '../../data/events'
 // import { setPartners } from '../../data/partners'
-import {getPartners, setPartners} from '../partners/data/'
+import { setPartners } from '../partners/data/'
 import { api, eventsRoute, partnersRoute } from '../../api';
-import { Checkbox } from 'react-native-paper';
 import { colors } from '../../Components/colors';
 import { useTranslation } from 'react-i18next';
 function LoginScreen({ navigation }) {
@@ -69,16 +68,7 @@ function LoginScreen({ navigation }) {
         <View style={styles.container}>
 
             <View style={styles.viewHorizontal}>
-                <Image
-                    source={require('../../../assets/br.png')}
-                    style={{
-                        width: 60,
-                        height: 40,
-                    }}
-                />
-                <Checkbox
-                    disabled={false}
-                    status={portugueseCheck ? 'checked' : 'unchecked'}
+                <TouchableOpacity
                     onPress={() => {
                         if (portugueseCheck) {
 
@@ -90,20 +80,20 @@ function LoginScreen({ navigation }) {
 
 
                     }}
-                    color={colors.red}
-                />
+                >
+                    <Image
+                        source={require('../../../assets/br.png')}
+                        style={{
+                            width: 60,
+                            height: 40,
+                        }}
+                    />
+                </TouchableOpacity>
+
+
             </View>
             <View style={styles.viewHorizontal}>
-                <Image
-                    source={require('../../../assets/ur.png')}
-                    style={{
-                        width: 60,
-                        height: 40,
-                    }}
-                />
-                <Checkbox
-                    disabled={false}
-                    status={spanishCheck ? 'checked' : 'unchecked'}
+                <TouchableOpacity
                     onPress={() => {
                         if (spanishCheck) { } else {
                             setSpanishCheck(!spanishCheck);
@@ -112,8 +102,15 @@ function LoginScreen({ navigation }) {
                         }
 
                     }}
-                    color={colors.red}
-                />
+                >
+                    <Image
+                        source={require('../../../assets/ur.png')}
+                        style={{
+                            width: 60,
+                            height: 40,
+                        }}
+                    />
+                </TouchableOpacity>
             </View>
 
             <View style={{ marginTop: 25 }}>

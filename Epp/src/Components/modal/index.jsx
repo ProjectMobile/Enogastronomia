@@ -1,5 +1,5 @@
 import React from "react"
-import { Modal, StyleSheet, View, Button, Dimensions } from "react-native"
+import { Modal, StyleSheet, View, Dimensions } from "react-native"
 
 const ModalPopUp = ({ visible, children }) => {
     return (
