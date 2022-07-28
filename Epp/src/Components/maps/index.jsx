@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%'
   }, maps: {
-    height: Dimensions.get('window').height*0.95,
+    height: Dimensions.get('window').height,
     width: Dimensions.get('window').width,
     top: 15
   }

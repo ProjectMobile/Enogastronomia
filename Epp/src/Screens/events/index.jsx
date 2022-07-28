@@ -80,139 +80,140 @@ function EventsScreen({ navigation }) {
         const handlePress3 = () => setExpanded3(!expanded3);
         const handlePress4 = () => setExpanded4(!expanded4);
         return (
-
-            <List.Section title="" titleStyle={{ alignSelf: 'center' }}>
-
-
-                <List.Accordion
-                    title={t("events27")}
-                    left={props => <List.Icon {...props} icon="calendar" />}
-                    expanded={expanded}
-
-                    onPress={handlePress}>
-                    {
-                        props.eventos27.map((event, index) => {
-                            return (< List.Item title={event.name} key={event.id}
-
-                                left={props => {
-                                    return (
-                                        <View style={{ flexDirection: 'row' }}>
-
-                                            <Text style={{ alignSelf: 'center', color: verifyDate(event.date) ? 'black' : 'red' }}>
-                                                {formattedDate(event.date)}
-                                            </Text>
-                                            {
-                                                returnIcon(event.simplaURL)
-                                            }
-
-                                        </View>
-                                    )
-                                }
-                                }
-                                onPress={() => {
-                                    setVisible(!visible)
-                                    setEventoModal(event)
-                                }} />)
-                        })
-                    }
-                </List.Accordion>
-
-                <List.Accordion
-                    title={t("events28")}
-                    left={props => <List.Icon {...props} icon="calendar" />}
-                    expanded={expanded2}
-                    onPress={handlePress2}>
-                    {
-                        props.eventos28.map((event, index) => {
-                            return (< List.Item title={event.name} key={event.id}
-
-                                onPress={() => {
-                                    setVisible(!visible)
-                                    setEventoModal(event)
-                                }}
-
-                                left={props => {
-                                    return (
-                                        <View style={{ flexDirection: 'row' }}>
-
-                                            <Text style={{ alignSelf: 'center', color: verifyDate(event.date) ? 'black' : 'red' }}>
-                                                {formattedDate(event.date)}
-                                            </Text>
-                                            {
-                                                returnIcon(event.simplaURL)
-                                            }
-
-                                        </View>
-                                    )
-                                }
-                                }
+            <View style={{ marginTop: 20 }}>
+                <List.Section title="" titleStyle={{ alignSelf: 'center' }}>
 
 
-                            />)
-                        })
-                    }
-                </List.Accordion>
-                <List.Accordion
-                    title={t("events29")}
-                    left={props => <List.Icon {...props} icon="calendar" />}
-                    expanded={expanded3}
-                    onPress={handlePress3}>
-                    {
-                        props.eventos29.map((event, index) => {
-                            return (< List.Item title={event.name} key={event.id}
-                                left={props => {
-                                    return (
-                                        <View style={{ flexDirection: 'row' }}>
+                    <List.Accordion
+                        title={t("events27")}
+                        left={props => <List.Icon {...props} icon="calendar" />}
+                        expanded={expanded}
 
-                                            <Text style={{ alignSelf: 'center', color: verifyDate(event.date) ? 'black' : 'red' }}>
-                                                {formattedDate(event.date)}
-                                            </Text>
-                                            {
-                                                returnIcon(event.simplaURL)
-                                            }
+                        onPress={handlePress}>
+                        {
+                            props.eventos27.map((event, index) => {
+                                return (< List.Item title={event.name} key={event.id}
 
-                                        </View>
-                                    )
-                                }
-                                }
-                                onPress={() => {
-                                    setVisible(!visible)
-                                    setEventoModal(event)
-                                }} />)
-                        })
-                    }
-                </List.Accordion>
-                <List.Accordion
-                    title={t("events30")}
-                    left={props => <List.Icon {...props} icon="calendar" />}
-                    expanded={expanded4}
-                    onPress={handlePress4}>
-                    {
-                        props.eventos30.map((event, index) => {
-                            return (< List.Item title={event.name} key={event.id}
-                                left={props => {
-                                    return (
-                                        <View style={{ flexDirection: 'row' }}>
+                                    left={props => {
+                                        return (
+                                            <View style={{ flexDirection: 'row' }}>
 
-                                            <Text style={{ alignSelf: 'center', color: verifyDate(event.date) ? 'black' : 'red' }}>
-                                                {formattedDate(event.date)}
-                                            </Text>
-                                            {
-                                                returnIcon(event.simplaURL)
-                                            }
+                                                <Text style={{ alignSelf: 'center', color: verifyDate(event.date) ? 'black' : 'red' }}>
+                                                    {formattedDate(event.date)}
+                                                </Text>
+                                                {
+                                                    returnIcon(event.simplaURL)
+                                                }
 
-                                        </View>
-                                    )
-                                }
-                                }
-                                onPress={() => {
-                                    setVisible(!visible)
-                                    setEventoModal(event)
-                                }} />)
-                        })
-                    }
-                </List.Accordion>
-            </List.Section >
+                                            </View>
+                                        )
+                                    }
+                                    }
+                                    onPress={() => {
+                                        setVisible(!visible)
+                                        setEventoModal(event)
+                                    }} />)
+                            })
+                        }
+                    </List.Accordion>
+
+                    <List.Accordion
+                        title={t("events28")}
+                        left={props => <List.Icon {...props} icon="calendar" />}
+                        expanded={expanded2}
+                        onPress={handlePress2}>
+                        {
+                            props.eventos28.map((event, index) => {
+                                return (< List.Item title={event.name} key={event.id}
+
+                                    onPress={() => {
+                                        setVisible(!visible)
+                                        setEventoModal(event)
+                                    }}
+
+                                    left={props => {
+                                        return (
+                                            <View style={{ flexDirection: 'row' }}>
+
+                                                <Text style={{ alignSelf: 'center', color: verifyDate(event.date) ? 'black' : 'red' }}>
+                                                    {formattedDate(event.date)}
+                                                </Text>
+                                                {
+                                                    returnIcon(event.simplaURL)
+                                                }
+
+                                            </View>
+                                        )
+                                    }
+                                    }
+
+
+                                />)
+                            })
+                        }
+                    </List.Accordion>
+                    <List.Accordion
+                        title={t("events29")}
+                        left={props => <List.Icon {...props} icon="calendar" />}
+                        expanded={expanded3}
+                        onPress={handlePress3}>
+                        {
+                            props.eventos29.map((event, index) => {
+                                return (< List.Item title={event.name} key={event.id}
+                                    left={props => {
+                                        return (
+                                            <View style={{ flexDirection: 'row' }}>
+
+                                                <Text style={{ alignSelf: 'center', color: verifyDate(event.date) ? 'black' : 'red' }}>
+                                                    {formattedDate(event.date)}
+                                                </Text>
+                                                {
+                                                    returnIcon(event.simplaURL)
+                                                }
+
+                                            </View>
+                                        )
+                                    }
+                                    }
+                                    onPress={() => {
+                                        setVisible(!visible)
+                                        setEventoModal(event)
+                                    }} />)
+                            })
+                        }
+                    </List.Accordion>
+                    <List.Accordion
+                        title={t("events30")}
+                        left={props => <List.Icon {...props} icon="calendar" />}
+                        expanded={expanded4}
+                        onPress={handlePress4}>
+                        {
+                            props.eventos30.map((event, index) => {
+                                return (< List.Item title={event.name} key={event.id}
+                                    left={props => {
+                                        return (
+                                            <View style={{ flexDirection: 'row' }}>
+
+                                                <Text style={{ alignSelf: 'center', color: verifyDate(event.date) ? 'black' : 'red' }}>
+                                                    {formattedDate(event.date)}
+                                                </Text>
+                                                {
+                                                    returnIcon(event.simplaURL)
+                                                }
+
+                                            </View>
+                                        )
+                                    }
+                                    }
+                                    onPress={() => {
+                                        setVisible(!visible)
+                                        setEventoModal(event)
+                                    }} />)
+                            })
+                        }
+                    </List.Accordion>
+                </List.Section >
+            </View>
         );
     };
 
@@ -283,9 +284,12 @@ function EventsScreen({ navigation }) {
                         <Icon name='close' size={32} color='black' onPress={() => { setVisible(!visible) }} style={{}} />
                     </View>
                     <Button icon="google-maps" mode="contained" color={'white'} style={{ width: Dimensions.get('screen').width * 0.65, alignSelf: 'center', borderColor: 'red', borderWidth: 2, borderRadius: 20 }} onPress={() => {
+                        setVisible(!visible)
                         navigation.navigate('Inicio', { screen: 'Home', params: eventoModal })
                     }} > {t("seeOnMap")}</Button>
                     {eventoModal.simplaURL && (<Button icon={buttonICON(eventoModal.simplaURL)} mode="contained" color={'white'} style={{ width: Dimensions.get('screen').width * 0.65, marginTop: 10, alignSelf: 'center', borderColor: 'darkgreen', borderWidth: 2, borderRadius: 20 }} onPress={() => {
+
+                        setVisible(!visible)
                         Linking.openURL(eventoModal.simplaURL)
                     }} > {
                             verifyButtonCondition(eventoModal.simplaURL)
@@ -299,7 +303,7 @@ function EventsScreen({ navigation }) {
                         <Text style={{ textAlign: 'center', flexShrink: 1, fontSize: 20, color: `${colors.red}`, marginTop: 15, fontWeight: 'bold' }}>
                             {eventoModal.name}
                         </Text>
-                        <ScrollView style={{ marginTop: 10, height: Dimensions.get('window').height * 0.75 }}>
+                        <ScrollView style={{ marginTop: 10, height: Dimensions.get('window').height * 0.7 }}>
                             <Text style={{ flexShrink: 1, fontSize: 16, textAlign: 'justify' }}>
                                 {eventoModal.description}
                             </Text>
@@ -331,16 +335,16 @@ function EventsScreen({ navigation }) {
 
                 <View style={{ flexDirection: 'row' }}>
                     <Icon name='crown' size={16} style={styles.eventTypeIcon} />
-                    <Text> Evento Pago </Text>
+                    <Text>{t("subPaid")}</Text>
                 </View>
 
                 <View style={{ flexDirection: 'row' }}>
                     <Icon name='ticket-confirmation-outline' size={16} style={styles.eventTypeIcon} />
-                    <Text> Evento que requer inscrição </Text>
+                    <Text>{t("subSubscription")}</Text>
                 </View>
                 <View style={{ flexDirection: 'row' }}>
                     <Icon name='ticket-outline' size={16} style={styles.eventTypeIcon} />
-                    <Text> Evento gratuito </Text>
+                    <Text>{t("subFree")}</Text>
                 </View>
 
 

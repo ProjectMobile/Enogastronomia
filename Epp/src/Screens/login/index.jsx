@@ -67,7 +67,7 @@ function LoginScreen({ navigation }) {
     return (
         <View style={styles.container}>
 
-            <View style={styles.viewHorizontal}>
+            <View style={{alignSelf:'center'}}>
                 <TouchableOpacity
                     onPress={() => {
                         if (portugueseCheck) {
@@ -86,13 +86,12 @@ function LoginScreen({ navigation }) {
                         style={{
                             width: 60,
                             height: 40,
+                            marginBottom:20
                         }}
                     />
                 </TouchableOpacity>
 
 
-            </View>
-            <View style={styles.viewHorizontal}>
                 <TouchableOpacity
                     onPress={() => {
                         if (spanishCheck) { } else {
@@ -108,6 +107,7 @@ function LoginScreen({ navigation }) {
                         style={{
                             width: 60,
                             height: 40,
+                            marginBottom:15
                         }}
                     />
                 </TouchableOpacity>

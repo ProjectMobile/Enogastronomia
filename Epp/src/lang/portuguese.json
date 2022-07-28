@@ -4,9 +4,12 @@
         "welcome": "Português",
         "map": "Mapa",
         "partners": "Parceiros",
-        "evaluateEvent":"O 7º Festival Binacional de Enogastronomia é feito por muitas pessoas pensando em você e no desenvolvimento da nossa Fronteira. Dê a sua opinião sobre o Evento e nos ajude a melhorar cada vez mais!",
+        "evaluateEvent":"O 7º Festival Binacional de Enogastronomia é feito por muitas pessoas pensando em você e no desenvolvimento da nossa Fronteira. \nDê a sua opinião sobre o Evento e nos ajude a melhorar cada vez mais!",
         "settings": "Configurações",
         "evaluate": "Avaliar",
+        "subPaid": "Evento Pago",
+        "subSubscription": "Evento que Requer Inscrição",
+        "subFree": "Evento Gratuito",
         "button": "Selecionar idioma",
         "seeOnMap": "Ver no mapa",
         "buyTickets": "Comprar Ingressos",
@@ -15,6 +18,8 @@
         "events28": "Eventos do Dia 28",
         "events29": "Eventos do Dia 29",
         "events30": "Eventos do Dia 30",
-        "officialHotels":"Hotéis oficiais"
+        "officialHotels":"Hotéis Oficiais",
+        "circuito":"Circuito de Pratos da Fronteira",
+        "pracaAlimentacao":"Praça de Alimentação"
     }
 }

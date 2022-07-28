@@ -146,16 +146,14 @@ function PartnerScreen({ navigation }) {
             <ModalMap />
 
 
-            <List.Section title="Parceiros" titleStyle={{ alignSelf: 'center' }}>
+            <List.Section title=" " titleStyle={{ alignSelf: 'center' }}>
                 <List.Accordion
-                    title={t("officialHotels")}
+                    title={t("officialHotels")} 
                     expanded={expanded}
                     onPress={handlePress}
                     left={props => <List.Icon {...props} icon="bed" />}
 
                 >
-
-
 
                     <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
                         <View style={{ flexDirection: 'column', right: Dimensions.get('screen').width * 0.1 }}>
@@ -237,7 +235,8 @@ function PartnerScreen({ navigation }) {
 
                 </List.Accordion>
 
-                <List.Accordion title='Circuito'
+                <List.Accordion 
+                    title={t("circuito")} 
                     expanded={expanded2}
                     onPress={handlePress2}
                     left={props => <List.Icon {...props} icon="silverware" />}
@@ -320,7 +319,8 @@ function PartnerScreen({ navigation }) {
 
                 </List.Accordion>
 
-                <List.Accordion title='Praça de alimentação'
+                <List.Accordion 
+                    title={t("pracaAlimentacao")} 
                     expanded={expanded3}
                     onPress={handlePress3}
                     left={props => <List.Icon {...props} icon="clock" />}

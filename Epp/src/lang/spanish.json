@@ -1,20 +1,25 @@
 {
     "translation": {
-        "event": "Programacion",
+        "event": "Programación",
         "welcome": "Español",
         "map": "Mapa",
-        "evaluateEvent":"El 7° Festival Binacional de Enogastronomía está hecho por mucha gente pensando en ti y en el desarrollo de nuestra Frontera. ¡Danos tu opinión sobre el Evento y ayúdanos a mejorar aún más!",
+        "evaluateEvent":"El 7° Festival Binacional de Enogastronomía está hecho por mucha gente pensando en ti y en el desarrollo de nuestra Frontera.\n¡Danos tu opinión sobre el Evento y ayúdanos a mejorar aún más!",
         "partners": "Socios",
         "settings": "Configuraciones",
         "button": "Seleccione el idioma",
         "seeOnMap": "Ver en el mapa",
         "evaluate": "Evaluar",
+        "subPaid": "Evento de Pago",
+        "subSubscription": "Evento que Requiere Registro",
+        "subFree": "Evento Gratuito",
         "buyTickets": "Comprar entradas",
         "subscribeEvent": "Registrarse",
         "events27": "Eventos del Día 27",
         "events28": "Eventos del Día 28",
         "events29": "Eventos del Día 29",
         "events30": "Eventos del Día 30",
-        "officialHotels":"Hoteles oficiales"
+        "officialHotels":"Hoteles Oficiales",
+        "circuito":"Circuito Platos Fronterizos",
+        "pracaAlimentacao":"Plaza de Alimentación"
     }
 }
